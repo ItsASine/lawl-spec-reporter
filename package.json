@@ -1,7 +1,7 @@
 {
-  "name": "jasmine-spec-reporter",
-  "version": "2.1.0",
-  "description": "Spec reporter for jasmine behavior-driven development framework",
+  "name": "lawl-spec-reporter",
+  "version": "0.1.0",
+  "description": "Spec reporter for jasmine, based on jasmine-spec-reporter, outputs in LolSpeak",
   "main": "src/jasmine-spec-reporter.js",
   "scripts": {
     "test": "node node_modules/jasmine/bin/jasmine.js",
@@ -9,21 +9,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bcaudan/jasmine-spec-reporter"
+    "url": "https://github.com/ItsASine/jasmine-spec-reporter"
   },
   "keywords": [
     "jasmine",
     "reporter",
-    "bdd",
+    "lolcat",
     "spec",
-    "protractor"
+    "protractor",
+    "lolcode",
+    "lolspeak"
   ],
-  "author": "Bastien Caudan",
+  "author": "ItsASine",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/bcaudan/jasmine-spec-reporter/issues"
+    "url": "https://github.com/ItsASine/jasmine-spec-reporter/issues"
   },
-  "homepage": "https://github.com/bcaudan/jasmine-spec-reporter",
+  "homepage": "https://github.com/ItsASine/jasmine-spec-reporter",
   "dependencies": {
     "colors": "~0.6.2"
   },

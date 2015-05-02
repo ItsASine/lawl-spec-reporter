@@ -1,3 +1,5 @@
+'use strict';
+
 var DisplayProcessor = require('../display-processor');
 
 function SpecColorsProcessor() {}
@@ -5,15 +7,15 @@ function SpecColorsProcessor() {}
 SpecColorsProcessor.prototype = new DisplayProcessor();
 
 SpecColorsProcessor.prototype.displaySuccessfulSpec = function (spec, log) {
-  return log.success;
+    return log.success;
 };
 
 SpecColorsProcessor.prototype.displayFailedSpec = function (spec, log) {
-  return log.failure;
+    return log.failure;
 };
 
 SpecColorsProcessor.prototype.displayPendingSpec = function (spec, log) {
-  return log.pending;
+    return log.pending;
 };
 
 module.exports = SpecColorsProcessor;

@@ -7,24 +7,24 @@ var noop = function () {};
 var jrunner = new Jasmine();
 jrunner.configureDefaultReporter({onComplete: noop, print: noop});
 jasmine.getEnv().addReporter(new SpecReporter({
-  displayStacktrace: false,
-  displayFailuresSummary: true,
-  displaySuccessfulSpec: true,
-  displayFailedSpec: true,
-  displayPendingSpec: true,
-  displaySpecDuration: false,
-  displaySuiteNumber: false,
-  colors: {
-    success: 'green',
-    failure: 'red',
-    skipped: 'cyan'
-  },
-  prefixes: {
-    success: '✓ ',
-    failure: '✗ ',
-    pending: '- '
-  },
-  customProcessors: []
+    displayStacktrace: false,
+    displayFailuresSummary: true,
+    displaySuccessfulSpec: true,
+    displayFailedSpec: true,
+    displayPendingSpec: true,
+    displaySpecDuration: false,
+    displaySuiteNumber: false,
+    colors: {
+        success: 'green',
+        failure: 'red',
+        skipped: 'cyan'
+    },
+    prefixes: {
+        success: '✓ ',
+        failure: '✗ ',
+        pending: '- '
+    },
+    customProcessors: []
 }));
 jrunner.projectBaseDir = '';
 jrunner.specDir = '';

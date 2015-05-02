@@ -1,3 +1,5 @@
+'use strict';
+
 var DisplayProcessor = require('../display-processor');
 
 function SpecDurationsProcessor() {}
@@ -5,10 +7,10 @@ function SpecDurationsProcessor() {}
 SpecDurationsProcessor.prototype = new DisplayProcessor();
 
 function displayDuration(spec, log) {
-  return log + ' (' + spec.duration + ')';
+    return log + ' (' + spec.duration + ')';
 }
 
-SpecDurationsProcessor.prototype.displaySuccessfulSpec  = displayDuration;
-SpecDurationsProcessor.prototype.displayFailedSpec      = displayDuration;
+SpecDurationsProcessor.prototype.displaySuccessfulSpec = displayDuration;
+SpecDurationsProcessor.prototype.displayFailedSpec = displayDuration;
 
 module.exports = SpecDurationsProcessor;
