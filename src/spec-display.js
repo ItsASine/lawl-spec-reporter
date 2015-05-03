@@ -22,7 +22,7 @@ SpecDisplay.prototype = {
         var failed = (metrics.failedSpecs > 0) ? '(' + metrics.failedSpecs + ' FAILD) ' : '';
         var pending = (metrics.pendingSpecs > 0) ? '(' + metrics.pendingSpecs + ' PENDIN) ' : '';
         var skipped = (metrics.skippedSpecs > 0) ? '(' + metrics.skippedSpecs + ' SKIPPD) ' : '';
-        var duration = 'in ' + metrics.duration + '.';
+        var duration = 'IN ' + metrics.duration + '.';
 
         this.resetIndent();
         this.newLine();
