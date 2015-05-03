@@ -26,16 +26,21 @@ SpecDisplay.prototype = {
 
         this.resetIndent();
         this.newLine();
+
         if (this.displayFailuresSummary && metrics.failedSpecs > 0) {
             this.failuresSummary();
         }
+
         this.log(execution + successful.success + failed.failure + pending.pending + skipped + duration);
+        this.newLine();
+        this.log('KTHXBAI');
+        this.newLine();
     },
 
     failuresSummary: function () {
-        this.log("**************************************************");
-        this.log("*                   OH NOES                      *");
-        this.log("**************************************************");
+        this.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        this.log("|                 OH NOES                        |");
+        this.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         this.newLine();
         for (var i = 0; i < this.failedSpecs.length; i++) {
             this.failedSummary(this.failedSpecs[i], i + 1);
@@ -110,7 +115,7 @@ SpecDisplay.prototype = {
     },
 
     ensureSuiteDisplayed: function (spec) {
-        if (this.suiteHierarchy.length == 0) {
+        if (this.suiteHierarchy.length === 0) {
             var suiteName = this.getParentName(spec).trim();
             this.suite({id: 'single suite', fullName: suiteName, description: suiteName});
         }
