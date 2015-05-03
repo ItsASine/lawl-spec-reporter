@@ -39,26 +39,26 @@ SpecMetrics.prototype = {
         var duration = '', durationInSecs, durationInMins, durationInHrs;
         durationInSecs = durationInMs / 1000;
         if (durationInSecs < 1) {
-            return durationInSecs + ' secs';
+            return durationInSecs + ' secz';
         }
         durationInSecs = Math.round(durationInSecs);
         if (durationInSecs < 60) {
-            return durationInSecs + ' secs';
+            return durationInSecs + ' secz';
         }
         durationInMins = Math.floor(durationInSecs / 60);
         durationInSecs = durationInSecs % 60;
         if (durationInSecs) {
-            duration = ' ' + durationInSecs + ' secs';
+            duration = ' ' + durationInSecs + ' secz';
         }
         if (durationInMins < 60) {
-            return durationInMins + ' mins' + duration;
+            return durationInMins + ' minz' + duration;
         }
         durationInHrs = Math.floor(durationInMins / 60);
         durationInMins = durationInMins % 60;
         if (durationInMins) {
-            duration = ' ' + durationInMins + ' mins' + duration;
+            duration = ' ' + durationInMins + ' minz' + duration;
         }
-        return durationInHrs + ' hours' + duration;
+        return durationInHrs + ' hrz' + duration;
     }
 };
 

@@ -19,8 +19,8 @@ function SuiteNumberingProcessor() {
                 break;
             }
         }
-        if (i == this.suiteHierarchy.length) {
-            this.suiteHierarchy.push({name: parentName, number: 1})
+        if (i === this.suiteHierarchy.length) {
+            this.suiteHierarchy.push({name: parentName, number: 1});
         }
     };
 

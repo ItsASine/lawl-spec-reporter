@@ -56,7 +56,7 @@ function initProcessors(options) {
 SpecReporter.prototype = {
     jasmineStarted: function (info) {
         this.started = true;
-        this.display.log('Spec started');
+        this.display.log('OHAI');
         this.metrics.start(info);
     },
 
@@ -90,19 +90,6 @@ SpecReporter.prototype = {
             this.metrics.failedSpecs++;
             this.display.failed(spec);
         }
-    },
-
-    reportRunnerStarting: function () {
-        this.display.newLine();
-        this.display.log('*******************************************************************');
-        this.display.log('* Oops!                                                           *');
-        this.display.log('* jasmine-spec-reporter 2.x is not compatible with jasmine < 2.x. *');
-        this.display.log('*                                                                 *');
-        this.display.log('* Please consider using jasmine-spec-reporter < 2.0.0.            *');
-        this.display.log('*                                                                 *');
-        this.display.log('*      npm install jasmine-spec-reporter@"<2.0.0" --save-dev      *');
-        this.display.log('*******************************************************************');
-        this.display.newLine();
     }
 };
 

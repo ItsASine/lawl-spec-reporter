@@ -17,11 +17,11 @@ var SpecDisplay = function (options, displayProcessors) {
 
 SpecDisplay.prototype = {
     summary: function (metrics) {
-        var execution = 'Executed ' + metrics.executedSpecs + ' of ' + metrics.totalSpecsDefined + (metrics.totalSpecsDefined === 1 ? ' spec ' : ' specs ');
-        var successful = (metrics.failedSpecs === 0) ? 'SUCCESS ' : '';
-        var failed = (metrics.failedSpecs > 0) ? '(' + metrics.failedSpecs + ' FAILED) ' : '';
-        var pending = (metrics.pendingSpecs > 0) ? '(' + metrics.pendingSpecs + ' PENDING) ' : '';
-        var skipped = (metrics.skippedSpecs > 0) ? '(' + metrics.skippedSpecs + ' SKIPPED) ' : '';
+        var execution = 'EXECUTD ' + metrics.executedSpecs + ' OV ' + metrics.totalSpecsDefined + (metrics.totalSpecsDefined === 1 ? ' SPEC ' : ' SPECZ ');
+        var successful = (metrics.failedSpecs === 0) ? 'SUCCES ' : '';
+        var failed = (metrics.failedSpecs > 0) ? '(' + metrics.failedSpecs + ' FAILD) ' : '';
+        var pending = (metrics.pendingSpecs > 0) ? '(' + metrics.pendingSpecs + ' PENDIN) ' : '';
+        var skipped = (metrics.skippedSpecs > 0) ? '(' + metrics.skippedSpecs + ' SKIPPD) ' : '';
         var duration = 'in ' + metrics.duration + '.';
 
         this.resetIndent();
@@ -34,7 +34,7 @@ SpecDisplay.prototype = {
 
     failuresSummary: function () {
         this.log("**************************************************");
-        this.log("*                    Failures                    *");
+        this.log("*                   OH NOES                      *");
         this.log("**************************************************");
         this.newLine();
         for (var i = 0; i < this.failedSpecs.length; i++) {
