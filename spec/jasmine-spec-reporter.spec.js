@@ -257,7 +257,7 @@
                 });
               });
             });
-          }).summary).not.contains(/Failures:/);
+          }).summary).not.contains(/OH NOES/);
         });
       });
     });
@@ -389,7 +389,7 @@
                 return this.passed();
               });
             });
-          }).outputs).contains(/✓ SUCCESSFUL SPEC \({time}\)/);
+          }).outputs).contains(/✓ SUCCESSFUL SPEC \(/);
         });
         return it('should report failure', function() {
           return expect(new Test(this.reporter, function() {
@@ -398,7 +398,7 @@
                 return this.failed();
               });
             });
-          }).outputs).contains(/✗ FAILD SPEC \({time}\)/);
+          }).outputs).contains(/✗ FAILD SPEC \(/);
         });
       });
     });

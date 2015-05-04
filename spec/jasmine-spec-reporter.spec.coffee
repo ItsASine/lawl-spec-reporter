@@ -291,7 +291,7 @@ describe 'spec reporter', ->
             @describe 'suite 2', ->
               @it 'spec 2', ->
                 @failed('failed assertion 2')
-        ).summary).not.contains /Failures:/
+        ).summary).not.contains /OH NOES/
 
 
   describe 'with successful spec disabled', ->
@@ -398,7 +398,7 @@ describe 'spec reporter', ->
             @it 'successful spec', ->
               @passed()
         ).outputs)
-        .contains /✓ SUCCESSFUL SPEC \({time}\)/
+        .contains /✓ SUCCESSFUL SPEC \(/
 
 
       it 'should report failure', ->
@@ -407,7 +407,7 @@ describe 'spec reporter', ->
             @it 'failed spec', ->
               @failed()
         ).outputs)
-        .contains /✗ FAILD SPEC \({time}\)/
+        .contains /✗ FAILD SPEC \(/
 
 
   describe 'with prefixes set to empty strings', ->
