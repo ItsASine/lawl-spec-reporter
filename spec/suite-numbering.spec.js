@@ -22,7 +22,7 @@
                 return this.passed();
               });
             });
-          }).outputs).contains(/1 suite/);
+          }).outputs).contains(/1 SUITE/);
         });
       });
       describe('when multiple suite', function() {
@@ -45,9 +45,9 @@
               });
             });
           }).outputs;
-          expect(outputs).contains(/1 first suite/);
-          expect(outputs).contains(/2 second suite/);
-          return expect(outputs).contains(/3 third suite/);
+          expect(outputs).contains(/1 FURST SUITE/);
+          expect(outputs).contains(/2 SECOND SUITE/);
+          return expect(outputs).contains(/3 THIRD SUITE/);
         });
       });
       return describe('when multiple nested suite', function() {
@@ -74,11 +74,11 @@
               });
             });
           }).outputs;
-          expect(outputs).contains(/1 first suite/);
-          expect(outputs).contains(/1.1 first child suite/);
-          expect(outputs).contains(/1.1.1 first grandchild suite/);
-          expect(outputs).contains(/1.1.2 second grandchild suite/);
-          return expect(outputs).contains(/1.2 second child suite/);
+          expect(outputs).contains(/1 FURST SUITE/);
+          expect(outputs).contains(/1.1 FURST CHILD SUITE/);
+          expect(outputs).contains(/1.1.1 FURST GRANDCHILD SUITE/);
+          expect(outputs).contains(/1.1.2 SECOND GRANDCHILD SUITE/);
+          return expect(outputs).contains(/1.2 SECOND CHILD SUITE/);
         });
       });
     });

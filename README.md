@@ -1,6 +1,6 @@
 
-lawl-spec-reporter
-=====================
+lawl-spec-reporter  [![Build Status](https://travis-ci.org/ItsASine/lawl-spec-reporter.svg?branch=develop)](https://travis-ci.org/ItsASine/lawl-spec-reporter)
+========================
 
 #OHAI
 

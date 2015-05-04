@@ -20,7 +20,7 @@
                 return this.passed();
               });
             });
-          }).outputs).contains(/✓ successful spec/);
+          }).outputs).contains(/✓ SUCCESSFUL SPEC/);
         });
         it('should report failure', function() {
           return expect(new Test(this.reporter, function() {
@@ -29,14 +29,14 @@
                 return this.failed();
               });
             });
-          }).outputs).contains(/✗ failed spec/);
+          }).outputs).contains(/✗ FAILD SPEC/);
         });
         return it('should not report pending', function() {
           return expect(new Test(this.reporter, function() {
             return this.describe('suite', function() {
               return this.xit('pending spec', function() {});
             });
-          }).outputs).not.contains(/pending spec/);
+          }).outputs).not.contains(/PENDING SPEC/);
         });
       });
       describe('when failed spec', function() {
@@ -52,7 +52,7 @@
             });
           }).outputs;
           expect(outputs).not.contains(/passed assertion/);
-          return expect(outputs).contains(['    ✗ failed spec', '      - first failed assertion', '      - second failed assertion', '']);
+          return expect(outputs).contains(['    ✗ FAILD SPEC', '      - first failed assertion', '      - second failed assertion', '']);
         });
       });
       describe('when suite', function() {
@@ -66,7 +66,7 @@
                 return this.passed();
               });
             });
-          }).outputs).contains(['', '  suite', '    ✓ spec 1', '    ✓ spec 2', '']);
+          }).outputs).contains(['', '  SUITE', '    ✓ SPEC 1', '    ✓ SPEC 2', '']);
         });
         it('should display multiple suites', function() {
           return expect(new Test(this.reporter, function() {
@@ -80,7 +80,7 @@
                 return this.passed();
               });
             });
-          }).outputs).contains(['', '  suite 1', '    ✓ spec 1', '', '  suite 2', '    ✓ spec 2', '']);
+          }).outputs).contains(['', '  SUITE 1', '    ✓ SPEC 1', '', '  SUITE 2', '    ✓ SPEC 2', '']);
         });
         it('should display nested suite at first position', function() {
           return expect(new Test(this.reporter, function() {
@@ -94,7 +94,7 @@
                 return this.passed();
               });
             });
-          }).outputs).contains(['', '  suite 1', '', '    suite 2', '      ✓ spec 1', '', '    ✓ spec 2', '']);
+          }).outputs).contains(['', '  SUITE 1', '', '    SUITE 2', '      ✓ SPEC 1', '', '    ✓ SPEC 2', '']);
         });
         it('should display nested suite at last position', function() {
           return expect(new Test(this.reporter, function() {
@@ -108,7 +108,7 @@
                 });
               });
             });
-          }).outputs).contains(['', '  suite 1', '    ✓ spec 1', '', '    suite 2', '      ✓ spec 2', '']);
+          }).outputs).contains(['', '  SUITE 1', '    ✓ SPEC 1', '', '    SUITE 2', '      ✓ SPEC 2', '']);
         });
         return it('should display multiple nested suites', function() {
           return expect(new Test(this.reporter, function() {
@@ -124,7 +124,7 @@
                 });
               });
             });
-          }).outputs).contains(['', '  suite 1', '', '    suite 2', '      ✓ spec 2', '', '    suite 3', '      ✓ spec 3', '']);
+          }).outputs).contains(['', '  SUITE 1', '', '    SUITE 2', '      ✓ SPEC 2', '', '    SUITE 3', '      ✓ SPEC 3', '']);
         });
       });
       return describe('when summary', function() {
@@ -135,7 +135,7 @@
                 return this.passed();
               });
             });
-          }).summary).contains('Executed 1 of 1 spec SUCCESS in {time}.');
+          }).summary).contains('EXECUTD 1 OV 1 SPECZ SUCCES IN {time}.');
         });
         it('should report failure', function() {
           return expect(new Test(this.reporter, function() {
@@ -144,7 +144,7 @@
                 return this.failed();
               });
             });
-          }).summary).contains('Executed 1 of 1 spec (1 FAILED) in {time}.');
+          }).summary).contains('EXECUTD 1 OV 1 SPEC (1 FAILD) IN {time}.');
         });
         it('should report failures summary', function() {
           return expect(new Test(this.reporter, function() {
@@ -158,14 +158,14 @@
                 });
               });
             });
-          }).summary).contains([/.*/, /Failures/, /.*/, '', '1) suite 1 spec 1', '  - failed assertion 1', '', '2) suite 1 suite 2 spec 2', '  - failed assertion 2', '']);
+          }).summary).contains([/.*/, /OH NOES/, /.*/, '', '1) SUITE 1 SPEC 1', '  - failed assertion 1', '', '2) SUITE 1 SUITE 2 SPEC 2', '  - failed assertion 2', '']);
         });
         it('should report pending with success', function() {
           return expect(new Test(this.reporter, function() {
             return this.describe('suite', function() {
               return this.xit('spec', function() {});
             });
-          }).summary).contains('Executed 0 of 1 spec SUCCESS (1 PENDING) in {time}.');
+          }).summary).contains('EXECUTD 0 OV 1 SPEC SUCCES (1 PENDING) IN {time}.');
         });
         it('should report pending with failure', function() {
           return expect(new Test(this.reporter, function() {
@@ -175,7 +175,7 @@
                 return this.failed();
               });
             });
-          }).summary).toContain('Executed 1 of 2 specs (1 FAILED) (1 PENDING) in {time}.');
+          }).summary).toContain('EXECUTD 1 OV 2 SPECZ (1 FAILD) (1 PENDING) IN {time}.');
         });
         xit('should report skipped with success', function() {
           return expect(new Test(this.reporter, function() {
@@ -183,7 +183,7 @@
               this.it('spec', function() {});
               return this.fit('spec', function() {});
             });
-          }).summary).toContain('Executed 1 of 1 specs SUCCESS (1 SKIPPED) in {time}.');
+          }).summary).toContain('EXECUTD 1 OV 1 SPECZ SUCCES (1 SKIPPED) IN {time}.');
         });
         return xit('should report skipped with failure and pending', function() {
           return expect(new Test(this.reporter, function() {
@@ -197,7 +197,7 @@
               this.it('spec', function() {});
               return this.xit('spec', function() {});
             });
-          }).summary).toContain('Executed 1 of 2 specs (1 FAILED) (1 PENDING) (2 SKIPPED) in {time}.');
+          }).summary).toContain('EXECUTD 1 OV 2 SPECZ (1 FAILD) (1 PENDING) (2 SKIPPED) IN {time}.');
         });
       });
     });
@@ -218,7 +218,7 @@
             });
           }).outputs;
           expect(outputs).not.contains(/passed assertion/);
-          return expect(outputs).contains(['    ✗ failed spec', '      - first failed assertion', '      {Stacktrace}', '']);
+          return expect(outputs).contains(['    ✗ FAILD SPEC', '      - first failed assertion', '      {Stacktrace}', '']);
         });
       });
       return describe('when summary', function() {
@@ -234,7 +234,7 @@
                 });
               });
             });
-          }).summary).contains([/.*/, /Failures/, /.*/, '', '1) suite 1 spec 1', '  - failed assertion 1', '  {Stacktrace}', '', '2) suite 1 suite 2 spec 2', '  - failed assertion 2', '  {Stacktrace}', '']);
+          }).summary).contains([/.*/, /OH NOES/, /.*/, '', '1) SUITE 1 SPEC 1', '  - failed assertion 1', '  {Stacktrace}', '', '2) SUITE 1 SUITE 2 SPEC 2', '  - failed assertion 2', '  {Stacktrace}', '']);
         });
       });
     });
@@ -275,7 +275,7 @@
                 return this.passed();
               });
             });
-          }).outputs).not.contains(/successful spec/);
+          }).outputs).not.contains(/SUCCESSFUL SPEC/);
         });
       });
       return describe('when suite', function() {
@@ -291,7 +291,7 @@
               });
             });
           }).outputs;
-          return expect(outputs).not.contains(/suite/);
+          return expect(outputs).not.contains(/SUITE/);
         });
         return it('should display failed suite', function() {
           var outputs;
@@ -305,9 +305,9 @@
               });
             });
           }).outputs;
-          expect(outputs).contains(/suite/);
-          expect(outputs).contains(/failed spec/);
-          return expect(outputs).not.contains(/successful spec/);
+          expect(outputs).contains(/SUITE/);
+          expect(outputs).contains(/FAILD SPEC/);
+          return expect(outputs).not.contains(/SUCCESSFUL SPEC/);
         });
       });
     });
@@ -325,7 +325,7 @@
                 return this.failed();
               });
             });
-          }).outputs).not.contains(/failed spec/);
+          }).outputs).not.contains(/FAILD SPEC/);
         });
       });
       return describe('when suite', function() {
@@ -339,7 +339,7 @@
                 return this.failed();
               });
             });
-          }).outputs).not.contains(/failed suite/);
+          }).outputs).not.contains(/FAILD SUITE/);
         });
         return it('should display not fully failed suite', function() {
           var outputs;
@@ -353,9 +353,9 @@
               });
             });
           }).outputs;
-          expect(outputs).contains(/failed suite/);
-          expect(outputs).contains(/successful spec/);
-          return expect(outputs).not.contains(/failed spec/);
+          expect(outputs).contains(/FAILD SUITE/);
+          expect(outputs).contains(/SUCCESSFUL SPEC/);
+          return expect(outputs).not.contains(/FAILD SPEC/);
         });
       });
     });
@@ -371,7 +371,7 @@
             return this.describe('suite', function() {
               return this.xit('pending spec', function() {});
             });
-          }).outputs).contains(/- pending spec/);
+          }).outputs).contains(/- PENDING SPEC/);
         });
       });
     });
@@ -389,7 +389,7 @@
                 return this.passed();
               });
             });
-          }).outputs).contains(/✓ successful spec \({time}\)/);
+          }).outputs).contains(/✓ SUCCESSFUL SPEC \({time}\)/);
         });
         return it('should report failure', function() {
           return expect(new Test(this.reporter, function() {
@@ -398,7 +398,7 @@
                 return this.failed();
               });
             });
-          }).outputs).contains(/✗ failed spec \({time}\)/);
+          }).outputs).contains(/✗ FAILD SPEC \({time}\)/);
         });
       });
     });

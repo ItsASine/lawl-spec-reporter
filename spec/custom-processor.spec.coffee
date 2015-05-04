@@ -19,7 +19,7 @@ describe 'spec reporter', ->
             @it 'successful spec', ->
               @passed()
         ).outputs)
-        .contains /suite TEST/
+        .contains /SUITE TEST/
 
     describe 'when spec', ->
       it 'should report success with custom display', ->
@@ -28,7 +28,7 @@ describe 'spec reporter', ->
             @it 'successful spec', ->
               @passed()
         ).outputs)
-        .contains /successful spec TEST/
+        .contains /SUCCESSFUL SPEC TEST/
 
       it 'should report failure with custom display', ->
         expect(new Test(@reporter,->
@@ -36,7 +36,7 @@ describe 'spec reporter', ->
             @it 'failed spec', ->
               @failed()
         ).outputs)
-        .contains /failed spec TEST/
+        .contains /FAILD SPEC TEST/
 
 
       it 'should report pending with custom display', ->
@@ -44,4 +44,4 @@ describe 'spec reporter', ->
           @describe 'suite', ->
             @xit 'pending spec', ->
         ).outputs)
-        .contains /pending spec TEST/
+        .contains /PENDING SPEC TEST/

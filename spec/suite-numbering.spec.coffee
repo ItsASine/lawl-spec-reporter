@@ -15,7 +15,7 @@ describe 'spec reporter', ->
             @it 'successful spec', ->
               @passed()
         ).outputs)
-        .contains /1 suite/
+        .contains /1 SUITE/
 
     describe 'when multiple suite', ->
       it 'should add suite number', ->
@@ -30,9 +30,9 @@ describe 'spec reporter', ->
             @it 'successful spec', ->
               @passed()
         ).outputs
-        expect(outputs).contains /1 first suite/
-        expect(outputs).contains /2 second suite/
-        expect(outputs).contains /3 third suite/
+        expect(outputs).contains /1 FURST SUITE/
+        expect(outputs).contains /2 SECOND SUITE/
+        expect(outputs).contains /3 THIRD SUITE/
 
     describe 'when multiple nested suite', ->
       it 'should add suite number', ->
@@ -49,8 +49,8 @@ describe 'spec reporter', ->
               @it 'successful spec', ->
                 @passed()
         ).outputs
-        expect(outputs).contains /1 first suite/
-        expect(outputs).contains /1.1 first child suite/
-        expect(outputs).contains /1.1.1 first grandchild suite/
-        expect(outputs).contains /1.1.2 second grandchild suite/
-        expect(outputs).contains /1.2 second child suite/
+        expect(outputs).contains /1 FURST SUITE/
+        expect(outputs).contains /1.1 FURST CHILD SUITE/
+        expect(outputs).contains /1.1.1 FURST GRANDCHILD SUITE/
+        expect(outputs).contains /1.1.2 SECOND GRANDCHILD SUITE/
+        expect(outputs).contains /1.2 SECOND CHILD SUITE/

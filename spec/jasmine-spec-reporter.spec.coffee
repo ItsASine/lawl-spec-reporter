@@ -15,7 +15,7 @@ describe 'spec reporter', ->
             @it 'successful spec', ->
               @passed()
         ).outputs)
-        .contains /✓ successful spec/
+        .contains /✓ SUCCESSFUL SPEC/
 
 
       it 'should report failure', ->
@@ -24,7 +24,7 @@ describe 'spec reporter', ->
             @it 'failed spec', ->
               @failed()
         ).outputs)
-        .contains /✗ failed spec/
+        .contains /✗ FAILD SPEC/
 
 
       it 'should not report pending', ->
@@ -32,7 +32,7 @@ describe 'spec reporter', ->
           @describe 'suite', ->
             @xit 'pending spec', ->
         ).outputs)
-        .not.contains /pending spec/
+        .not.contains /PENDING SPEC/
 
 
     describe 'when failed spec', ->
@@ -47,7 +47,7 @@ describe 'spec reporter', ->
 
         expect(outputs).not.contains /passed assertion/
         expect(outputs).contains [
-          '    ✗ failed spec'
+          '    ✗ FAILD SPEC'
           '      - first failed assertion'
           '      - second failed assertion'
           ''
@@ -64,9 +64,9 @@ describe 'spec reporter', ->
               @passed()
         ).outputs).contains [
           ''
-          '  suite'
-          '    ✓ spec 1'
-          '    ✓ spec 2'
+          '  SUITE'
+          '    ✓ SPEC 1'
+          '    ✓ SPEC 2'
           ''
         ]
 
@@ -81,11 +81,11 @@ describe 'spec reporter', ->
               @passed()
         ).outputs).contains [
           ''
-          '  suite 1'
-          '    ✓ spec 1'
+          '  SUITE 1'
+          '    ✓ SPEC 1'
           ''
-          '  suite 2'
-          '    ✓ spec 2'
+          '  SUITE 2'
+          '    ✓ SPEC 2'
           ''
         ]
 
@@ -100,12 +100,12 @@ describe 'spec reporter', ->
               @passed()
         ).outputs).contains [
           ''
-          '  suite 1'
+          '  SUITE 1'
           ''
-          '    suite 2'
-          '      ✓ spec 1'
+          '    SUITE 2'
+          '      ✓ SPEC 1'
           ''
-          '    ✓ spec 2'
+          '    ✓ SPEC 2'
           ''
         ]
 
@@ -120,11 +120,11 @@ describe 'spec reporter', ->
                 @passed()
         ).outputs).contains [
           ''
-          '  suite 1'
-          '    ✓ spec 1'
+          '  SUITE 1'
+          '    ✓ SPEC 1'
           ''
-          '    suite 2'
-          '      ✓ spec 2'
+          '    SUITE 2'
+          '      ✓ SPEC 2'
           ''
         ]
 
@@ -140,13 +140,13 @@ describe 'spec reporter', ->
                 @passed()
         ).outputs).contains [
           ''
-          '  suite 1'
+          '  SUITE 1'
           ''
-          '    suite 2'
-          '      ✓ spec 2'
+          '    SUITE 2'
+          '      ✓ SPEC 2'
           ''
-          '    suite 3'
-          '      ✓ spec 3'
+          '    SUITE 3'
+          '      ✓ SPEC 3'
           ''
         ]
 
@@ -158,7 +158,7 @@ describe 'spec reporter', ->
             @it 'spec', ->
               @passed()
         ).summary)
-        .contains 'Executed 1 of 1 spec SUCCESS in {time}.'
+        .contains 'EXECUTD 1 OV 1 SPECZ SUCCES IN {time}.'
 
 
       it 'should report failure', ->
@@ -167,7 +167,7 @@ describe 'spec reporter', ->
             @it 'spec', ->
               @failed()
         ).summary)
-        .contains 'Executed 1 of 1 spec (1 FAILED) in {time}.'
+        .contains 'EXECUTD 1 OV 1 SPEC (1 FAILD) IN {time}.'
 
 
       it 'should report failures summary', ->
@@ -180,13 +180,13 @@ describe 'spec reporter', ->
                 @failed('failed assertion 2')
         ).summary).contains [
           /.*/
-          /Failures/
+          /OH NOES/
           /.*/
           ''
-          '1) suite 1 spec 1'
+          '1) SUITE 1 SPEC 1'
           '  - failed assertion 1'
           ''
-          '2) suite 1 suite 2 spec 2'
+          '2) SUITE 1 SUITE 2 SPEC 2'
           '  - failed assertion 2'
           ''
         ]
@@ -197,7 +197,7 @@ describe 'spec reporter', ->
           @describe 'suite', ->
             @xit 'spec', ->
         ).summary)
-        .contains 'Executed 0 of 1 spec SUCCESS (1 PENDING) in {time}.'
+        .contains 'EXECUTD 0 OV 1 SPEC SUCCES (1 PENDING) IN {time}.'
 
 
       it 'should report pending with failure', ->
@@ -207,7 +207,7 @@ describe 'spec reporter', ->
             @it 'spec', ->
               @failed()
         ).summary)
-        .toContain 'Executed 1 of 2 specs (1 FAILED) (1 PENDING) in {time}.'
+        .toContain 'EXECUTD 1 OV 2 SPECZ (1 FAILD) (1 PENDING) IN {time}.'
 
 
       xit 'should report skipped with success', ->
@@ -216,7 +216,7 @@ describe 'spec reporter', ->
             @it 'spec', ->
             @fit 'spec', ->
         ).summary)
-        .toContain 'Executed 1 of 1 specs SUCCESS (1 SKIPPED) in {time}.'
+        .toContain 'EXECUTD 1 OV 1 SPECZ SUCCES (1 SKIPPED) IN {time}.'
 
 
       xit 'should report skipped with failure and pending', ->
@@ -229,7 +229,7 @@ describe 'spec reporter', ->
             @it 'spec', ->
             @xit 'spec', ->
         ).summary)
-        .toContain 'Executed 1 of 2 specs (1 FAILED) (1 PENDING) (2 SKIPPED) in {time}.'
+        .toContain 'EXECUTD 1 OV 2 SPECZ (1 FAILD) (1 PENDING) (2 SKIPPED) IN {time}.'
 
 
   describe 'with stacktrace enabled', ->
@@ -246,7 +246,7 @@ describe 'spec reporter', ->
 
         expect(outputs).not.contains /passed assertion/
         expect(outputs).contains [
-          '    ✗ failed spec'
+          '    ✗ FAILD SPEC'
           '      - first failed assertion'
           '      {Stacktrace}'
           ''
@@ -264,14 +264,14 @@ describe 'spec reporter', ->
                 @failed('failed assertion 2')
         ).summary).contains [
           /.*/
-          /Failures/
+          /OH NOES/
           /.*/
           ''
-          '1) suite 1 spec 1'
+          '1) SUITE 1 SPEC 1'
           '  - failed assertion 1'
           '  {Stacktrace}'
           ''
-          '2) suite 1 suite 2 spec 2'
+          '2) SUITE 1 SUITE 2 SPEC 2'
           '  - failed assertion 2'
           '  {Stacktrace}'
           ''
@@ -305,7 +305,7 @@ describe 'spec reporter', ->
             @it 'successful spec', ->
               @passed()
         ).outputs)
-        .not.contains /successful spec/
+        .not.contains /SUCCESSFUL SPEC/
 
 
     describe 'when suite', ->
@@ -318,7 +318,7 @@ describe 'spec reporter', ->
               @passed()
         ).outputs
 
-        expect(outputs).not.contains /suite/
+        expect(outputs).not.contains /SUITE/
 
 
       it 'should display failed suite', ->
@@ -330,9 +330,9 @@ describe 'spec reporter', ->
               @passed()
         ).outputs
 
-        expect(outputs).contains /suite/
-        expect(outputs).contains /failed spec/
-        expect(outputs).not.contains /successful spec/
+        expect(outputs).contains /SUITE/
+        expect(outputs).contains /FAILD SPEC/
+        expect(outputs).not.contains /SUCCESSFUL SPEC/
 
 
   describe 'with failed spec disabled', ->
@@ -346,7 +346,7 @@ describe 'spec reporter', ->
             @it 'failed spec', ->
               @failed()
         ).outputs)
-        .not.contains /failed spec/
+        .not.contains /FAILD SPEC/
 
 
     describe 'when suite', ->
@@ -357,7 +357,7 @@ describe 'spec reporter', ->
               @failed()
             @it 'spec 2', ->
               @failed()
-        ).outputs).not.contains /failed suite/
+        ).outputs).not.contains /FAILD SUITE/
 
 
       it 'should display not fully failed suite', ->
@@ -369,9 +369,9 @@ describe 'spec reporter', ->
               @failed()
         ).outputs
 
-        expect(outputs).contains /failed suite/
-        expect(outputs).contains /successful spec/
-        expect(outputs).not.contains /failed spec/
+        expect(outputs).contains /FAILD SUITE/
+        expect(outputs).contains /SUCCESSFUL SPEC/
+        expect(outputs).not.contains /FAILD SPEC/
 
 
   describe 'with pending spec enabled', ->
@@ -384,7 +384,7 @@ describe 'spec reporter', ->
           @describe 'suite', ->
             @xit 'pending spec', ->
         ).outputs)
-        .contains /- pending spec/
+        .contains /- PENDING SPEC/
 
 
   describe 'with spec duration enabled', ->
@@ -398,7 +398,7 @@ describe 'spec reporter', ->
             @it 'successful spec', ->
               @passed()
         ).outputs)
-        .contains /✓ successful spec \({time}\)/
+        .contains /✓ SUCCESSFUL SPEC \({time}\)/
 
 
       it 'should report failure', ->
@@ -407,7 +407,7 @@ describe 'spec reporter', ->
             @it 'failed spec', ->
               @failed()
         ).outputs)
-        .contains /✗ failed spec \({time}\)/
+        .contains /✗ FAILD SPEC \({time}\)/
 
 
   describe 'with prefixes set to empty strings', ->

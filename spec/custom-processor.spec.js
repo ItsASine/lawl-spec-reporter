@@ -26,7 +26,7 @@
                 return this.passed();
               });
             });
-          }).outputs).contains(/suite TEST/);
+          }).outputs).contains(/SUITE TEST/);
         });
       });
       return describe('when spec', function() {
@@ -37,7 +37,7 @@
                 return this.passed();
               });
             });
-          }).outputs).contains(/successful spec TEST/);
+          }).outputs).contains(/SUCCESSFUL SPEC TEST/);
         });
         it('should report failure with custom display', function() {
           return expect(new Test(this.reporter, function() {
@@ -46,14 +46,14 @@
                 return this.failed();
               });
             });
-          }).outputs).contains(/failed spec TEST/);
+          }).outputs).contains(/FAILD SPEC TEST/);
         });
         return it('should report pending with custom display', function() {
           return expect(new Test(this.reporter, function() {
             return this.describe('suite', function() {
               return this.xit('pending spec', function() {});
             });
-          }).outputs).contains(/pending spec TEST/);
+          }).outputs).contains(/PENDING SPEC TEST/);
         });
       });
     });
