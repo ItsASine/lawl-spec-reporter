@@ -161,7 +161,7 @@ SpecDisplay.prototype = {
                 break;
             }
         }
-        if (i == this.suiteHierarchy.length) {
+        if (i === this.suiteHierarchy.length) {
             this.suiteHierarchy.push(parentName);
         }
     },
