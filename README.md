@@ -2,6 +2,8 @@
 lawl-spec-reporter  [![Build Status](https://travis-ci.org/ItsASine/lawl-spec-reporter.svg?branch=develop)](https://travis-ci.org/ItsASine/lawl-spec-reporter)
 ========================
 
+The *tests* are failing, not the build... must figure out how to pass dev tests... \*shrugs\*
+
 #OHAI
 
 ##Description
