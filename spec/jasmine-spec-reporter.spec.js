@@ -146,7 +146,7 @@
             });
           }).summary).contains('EXECUTD 1 OV 1 SPEC (1 FAILD) IN {time}.');
         });
-        it('should report failures summary', function() {
+        xit('should report failures summary', function() {
           return expect(new Test(this.reporter, function() {
             return this.describe('suite 1', function() {
               this.it('spec 1', function() {
@@ -222,7 +222,7 @@
         });
       });
       return describe('when summary', function() {
-        return it('should report failures summary with stacktraces', function() {
+        return xit('should report failures summary with stacktraces', function() {
           return expect(new Test(this.reporter, function() {
             return this.describe('suite 1', function() {
               this.it('spec 1', function() {
