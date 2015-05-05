@@ -37,4 +37,8 @@ Currently will take your suite and spec descriptions and convert them to lolspea
 - [ ] Get the spec file working instead of just skipping the failures summary tests (note: the failures summary does print, see screenshot, but the test that's testing the tests is not working)
 - [ ] Lolified failure summary
 
+##Installation
+
+`npm install lawl-spec-reporter`
+
 #KTHXBAI
