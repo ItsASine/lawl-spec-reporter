@@ -5,7 +5,7 @@
   require('colors');
 
   String.prototype.__defineGetter__('stripTime', function() {
-    return this.replace(/(\d+\.?\d*|\.\d+) secs/, '{time}');
+    return this.replace(/(\d+\.?\d*|\.\d+) SECZ/, '{time}');
   });
 
   typeIsArray = Array.isArray || function(value) {
@@ -65,7 +65,7 @@
       return console.log = (function(_this) {
         return function(stuff) {
           stuff = stuff.stripColors.stripTime;
-          if (/^(Executed|\*\*\*\*\*\*\*)/.test(stuff)) {
+          if (/^(EXECUTD|\*\*\*\*\*\*\*)/.test(stuff)) {
             logInSummary = true;
           }
           if (!logInSummary) {

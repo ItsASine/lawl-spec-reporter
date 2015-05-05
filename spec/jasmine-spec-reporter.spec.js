@@ -135,7 +135,7 @@
                 return this.passed();
               });
             });
-          }).summary).contains('EXECUTD 1 OV 1 SPECZ SUCCES IN {time}.');
+          }).summary).contains('EXECUTD 1 OV 1 SPEC SUCCES IN {time}.');
         });
         it('should report failure', function() {
           return expect(new Test(this.reporter, function() {
@@ -158,14 +158,14 @@
                 });
               });
             });
-          }).summary).contains([/.*/, /OH NOES/, /.*/, '', '1) SUITE 1 SPEC 1', '  - failed assertion 1', '', '2) SUITE 1 SUITE 2 SPEC 2', '  - failed assertion 2', '']);
+          }).summary).contains([/[\s\S]/, /OH NOES/, /[\s\S]/, /1\) SUITE 1 SPEC 1/, /- failed assertion 1/, /[\s\S]/]);
         });
         it('should report pending with success', function() {
           return expect(new Test(this.reporter, function() {
             return this.describe('suite', function() {
               return this.xit('spec', function() {});
             });
-          }).summary).contains('EXECUTD 0 OV 1 SPEC SUCCES (1 PENDING) IN {time}.');
+          }).summary).contains('EXECUTD 0 OV 1 SPEC SUCCES (1 PENDIN) IN {time}.');
         });
         it('should report pending with failure', function() {
           return expect(new Test(this.reporter, function() {
@@ -175,7 +175,7 @@
                 return this.failed();
               });
             });
-          }).summary).toContain('EXECUTD 1 OV 2 SPECZ (1 FAILD) (1 PENDING) IN {time}.');
+          }).summary).contains('EXECUTD 1 OV 2 SPECZ (1 FAILD) (1 PENDIN) IN {time}.');
         });
         xit('should report skipped with success', function() {
           return expect(new Test(this.reporter, function() {
@@ -183,7 +183,7 @@
               this.it('spec', function() {});
               return this.fit('spec', function() {});
             });
-          }).summary).toContain('EXECUTD 1 OV 1 SPECZ SUCCES (1 SKIPPED) IN {time}.');
+          }).summary).toContain('EXECUTD 1 OV 1 SPEC SUCCES (1 SKIPPED) IN {time}.');
         });
         return xit('should report skipped with failure and pending', function() {
           return expect(new Test(this.reporter, function() {
@@ -234,7 +234,7 @@
                 });
               });
             });
-          }).summary).contains([/.*/, /OH NOES/, /.*/, '', '1) SUITE 1 SPEC 1', '  - failed assertion 1', '  {Stacktrace}', '', '2) SUITE 1 SUITE 2 SPEC 2', '  - failed assertion 2', '  {Stacktrace}', '']);
+          }).summary).contains([/[\s\S]/, /OH NOES/, /[\s\S]/, /1\) SUITE 1 SPEC 1/, /- failed assertion 1/, '  {Stacktrace}', /[\s\S]/]);
         });
       });
     });
@@ -389,7 +389,7 @@
                 return this.passed();
               });
             });
-          }).outputs).contains(/✓ SUCCESSFUL SPEC \(/);
+          }).outputs).contains(/✓ SUCCESSFUL SPEC \(\{time}\)/);
         });
         return it('should report failure', function() {
           return expect(new Test(this.reporter, function() {
@@ -398,7 +398,7 @@
                 return this.failed();
               });
             });
-          }).outputs).contains(/✗ FAILD SPEC \(/);
+          }).outputs).contains(/✗ FAILD SPEC \(\{time}\)/);
         });
       });
     });

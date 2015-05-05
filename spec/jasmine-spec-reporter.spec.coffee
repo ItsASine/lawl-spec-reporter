@@ -158,7 +158,7 @@ describe 'spec reporter', ->
             @it 'spec', ->
               @passed()
         ).summary)
-        .contains 'EXECUTD 1 OV 1 SPECZ SUCCES IN {time}.'
+        .contains 'EXECUTD 1 OV 1 SPEC SUCCES IN {time}.'
 
 
       it 'should report failure', ->
@@ -179,16 +179,12 @@ describe 'spec reporter', ->
               @it 'spec 2', ->
                 @failed('failed assertion 2')
         ).summary).contains [
-          /.*/
+          /[\s\S]/
           /OH NOES/
-          /.*/
-          ''
-          '1) SUITE 1 SPEC 1'
-          '  - failed assertion 1'
-          ''
-          '2) SUITE 1 SUITE 2 SPEC 2'
-          '  - failed assertion 2'
-          ''
+          /[\s\S]/
+          /1\) SUITE 1 SPEC 1/
+          /- failed assertion 1/
+          /[\s\S]/
         ]
 
 
@@ -197,7 +193,7 @@ describe 'spec reporter', ->
           @describe 'suite', ->
             @xit 'spec', ->
         ).summary)
-        .contains 'EXECUTD 0 OV 1 SPEC SUCCES (1 PENDING) IN {time}.'
+        .contains 'EXECUTD 0 OV 1 SPEC SUCCES (1 PENDIN) IN {time}.'
 
 
       it 'should report pending with failure', ->
@@ -207,7 +203,7 @@ describe 'spec reporter', ->
             @it 'spec', ->
               @failed()
         ).summary)
-        .toContain 'EXECUTD 1 OV 2 SPECZ (1 FAILD) (1 PENDING) IN {time}.'
+        .contains 'EXECUTD 1 OV 2 SPECZ (1 FAILD) (1 PENDIN) IN {time}.'
 
 
       xit 'should report skipped with success', ->
@@ -216,7 +212,7 @@ describe 'spec reporter', ->
             @it 'spec', ->
             @fit 'spec', ->
         ).summary)
-        .toContain 'EXECUTD 1 OV 1 SPECZ SUCCES (1 SKIPPED) IN {time}.'
+        .toContain 'EXECUTD 1 OV 1 SPEC SUCCES (1 SKIPPED) IN {time}.'
 
 
       xit 'should report skipped with failure and pending', ->
@@ -263,18 +259,13 @@ describe 'spec reporter', ->
               @it 'spec 2', ->
                 @failed('failed assertion 2')
         ).summary).contains [
-          /.*/
+          /[\s\S]/
           /OH NOES/
-          /.*/
-          ''
-          '1) SUITE 1 SPEC 1'
-          '  - failed assertion 1'
+          /[\s\S]/
+          /1\) SUITE 1 SPEC 1/
+          /- failed assertion 1/
           '  {Stacktrace}'
-          ''
-          '2) SUITE 1 SUITE 2 SPEC 2'
-          '  - failed assertion 2'
-          '  {Stacktrace}'
-          ''
+          /[\s\S]/
         ]
 
 
@@ -398,7 +389,7 @@ describe 'spec reporter', ->
             @it 'successful spec', ->
               @passed()
         ).outputs)
-        .contains /✓ SUCCESSFUL SPEC \(/
+        .contains /✓ SUCCESSFUL SPEC \(\{time}\)/
 
 
       it 'should report failure', ->
@@ -407,7 +398,7 @@ describe 'spec reporter', ->
             @it 'failed spec', ->
               @failed()
         ).outputs)
-        .contains /✗ FAILD SPEC \(/
+        .contains /✗ FAILD SPEC \(\{time}\)/
 
 
   describe 'with prefixes set to empty strings', ->

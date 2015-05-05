@@ -1,7 +1,7 @@
 require('colors')
 
 String.prototype.__defineGetter__ 'stripTime', ->
-  this.replace /(\d+\.?\d*|\.\d+) secs/, '{time}'
+  this.replace /(\d+\.?\d*|\.\d+) SECZ/, '{time}'
 
 typeIsArray = Array.isArray || ( value ) -> return {}.toString.call( value ) is '[object Array]'
 
@@ -34,7 +34,7 @@ class Test
     logInSummary = false
     console.log = (stuff) =>
       stuff = stuff.stripColors.stripTime
-      logInSummary = true if /^(Executed|\*\*\*\*\*\*\*)/.test stuff
+      logInSummary = true if /^(EXECUTD|\*\*\*\*\*\*\*)/.test stuff
 
       unless logInSummary
         @outputs.push stuff
