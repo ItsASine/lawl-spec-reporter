@@ -1,4 +1,4 @@
-SpecReporter = require('../src/jasmine-spec-reporter.js')
+SpecReporter = require('../src/lawl-spec-reporter.js')
 
 describe 'duration', ->
   it 'should be human readable', ->

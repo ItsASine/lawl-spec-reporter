@@ -2,7 +2,7 @@
 (function() {
   var SpecReporter;
 
-  SpecReporter = require('../src/jasmine-spec-reporter.js');
+  SpecReporter = require('../src/lawl-spec-reporter.js');
 
   describe('duration', function() {
     return it('should be human readable', function() {
