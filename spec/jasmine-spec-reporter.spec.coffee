@@ -179,12 +179,12 @@ describe 'spec reporter', ->
               @it 'spec 2', ->
                 @failed('failed assertion 2')
         ).summary).contains [
-          /[\s\S]/
+          /[\s\S]*/
           /OH NOES/
-          /[\s\S]/
+          /[\s\S]*/
           /1\) SUITE 1 SPEC 1/
           /- failed assertion 1/
-          /[\s\S]/
+          /[\s\S]*/
         ]
 
 
@@ -259,13 +259,13 @@ describe 'spec reporter', ->
               @it 'spec 2', ->
                 @failed('failed assertion 2')
         ).summary).contains [
-          /[\s\S]/
+          /[\s\S]*/
           /OH NOES/
-          /[\s\S]/
+          /[\s\S]*/
           /1\) SUITE 1 SPEC 1/
           /- failed assertion 1/
           '  {Stacktrace}'
-          /[\s\S]/
+          /[\s\S]*/
         ]
 
 

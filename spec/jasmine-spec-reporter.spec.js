@@ -158,7 +158,7 @@
                 });
               });
             });
-          }).summary).contains([/[\s\S]/, /OH NOES/, /[\s\S]/, /1\) SUITE 1 SPEC 1/, /- failed assertion 1/, /[\s\S]/]);
+          }).summary).contains([/[\s\S]*/, /OH NOES/, /[\s\S]*/, /1\) SUITE 1 SPEC 1/, /- failed assertion 1/, /[\s\S]*/]);
         });
         it('should report pending with success', function() {
           return expect(new Test(this.reporter, function() {
@@ -234,7 +234,7 @@
                 });
               });
             });
-          }).summary).contains([/[\s\S]/, /OH NOES/, /[\s\S]/, /1\) SUITE 1 SPEC 1/, /- failed assertion 1/, '  {Stacktrace}', /[\s\S]/]);
+          }).summary).contains([/[\s\S]*/, /OH NOES/, /[\s\S]*/, /1\) SUITE 1 SPEC 1/, /- failed assertion 1/, '  {Stacktrace}', /[\s\S]*/]);
         });
       });
     });
